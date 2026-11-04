@@ -1,0 +1,6 @@
+{
+  "name": "İsmail Semih - Tiyatro ve Sahne Sanatları",
+  "description": "İsmail Semih tiyatro ve sahne sanatları resmi web sitesi. Oyunlar, etkinlik takvimi, bilet satışı, arşiv ve atölye seminerleri.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

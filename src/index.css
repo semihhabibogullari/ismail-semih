@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --accent: #ff5a1f;
+    --accent-hover: #ff7442;
+    --accent-glow: rgba(255, 90, 31, 0.25);
+    --bg-dark: #0b0b0f;
+    --card-dark: #121217;
+    --border-dark: #1f1f28;
+  }
+
+  body {
+    background-color: #0b0b0f;
+    color: #f1f1f4;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* İmza Logosu Fontu - SADECE logo ve imza alanlarında */
+.font-signature {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+}
+
+/* Sayfa ilk yüklendiğinde imzanın soldan sağa yazılma animasyonu */
+@keyframes signatureWrite {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.2;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.animate-signature-write {
+  animation: signatureWrite 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* İmza alt çizgisi çizim animasyonu */
+@keyframes strokeDraw {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.signature-line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+.signature-line-initial {
+  stroke-dasharray: 200;
+  animation: strokeDraw 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.group:hover .signature-line-hover {
+  animation: strokeDraw 0.6s ease-in-out forwards;
+}
+
+/* Özel kaydırma çubuğu */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23232f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5a1f;
+}
+
+/* Karartma ve yatay kaydırma gizleme */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
